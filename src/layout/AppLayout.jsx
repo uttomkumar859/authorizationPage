@@ -8,7 +8,7 @@ const AppLayout = () => {
   const navigate = useNavigate()
 
   useEffect(()=>{
-    if(!!user && !user ?.username)navigate('/auth/login')
+    if(!!user && !user?.username)navigate('/auth/login')
   },[user])
   return (
     <>

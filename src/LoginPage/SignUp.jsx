@@ -5,12 +5,13 @@ import {  Link, useNavigate } from "react-router-dom"
 const Signup = () => {
     const navigate = useNavigate();
     const [userData ,setUserData] = useState({username :'' ,password: ''})
-    const submithandler = () =>{
+    const submithandler = (e) =>{ e.preventDefault()
+        console.log("submithandler")
         let userList = localStorage.getItem("userList");
-        userList = userList?JSON.parse(userList) :  null ;
+        userList = userList?JSON.parse(userList) :  [] ;
         let checkUser = userList.some(({username}) =>(username===userData.username));
         if(checkUser) alert('username is already in userlist')
-        if(checkUser){
+        if(!checkUser){
             localStorage.setItem('userList', JSON.stringify([...userList, userData]))
             localStorage.setItem('user',JSON.stringify(userData))
             navigate('/')

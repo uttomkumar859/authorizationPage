@@ -6,7 +6,7 @@ const getUser = () => {
     const getUserData = () =>{
         let data = null
         if (typeof window !== "undefined"){
-            data = localStorage.getItem(user)
+            data = localStorage.getItem("user")
             data = data?JSON.parse(data) : {username : null , password: null}
         }
         return data;

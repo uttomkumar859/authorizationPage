@@ -35,15 +35,15 @@ function App() {
       ,{
         path : '/*',
         element : <ErrorPage />
-      },
-      {
+      }
+    
+    ]
+    
+    },{
         element: <AuthLayout />,
         children:[{path: '/auth/login' ,element: <LoginPage />},
         {path: '/auth/signup' ,element : <Signup />}  ]
       }
-    
-    ]
-    }
   ])
   return (
     <RouterProvider router={routerList}/>
